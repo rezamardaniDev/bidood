@@ -1,0 +1,10 @@
+{% block content %}
+
+    <form method="post" style="display: inline-flex">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">ورود</button>
+    </form>
+
+
+{% endblock %}
