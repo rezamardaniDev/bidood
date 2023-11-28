@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views import View
+from django.views.generic import View
 
 from .forms import *
 from .models import *
@@ -39,3 +39,9 @@ class SignUpView(View):
 
 class LoginView(View):
     ...
+
+def seccess_signup(request):
+    return render(request, 'seccess_signup.html', context={})
+
+def failure_signup(request):
+    return render(request, 'failure_signup.html', context={})
