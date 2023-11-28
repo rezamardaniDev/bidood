@@ -31,3 +31,20 @@ class LoginForm(forms.Form):
             return confirm_password
         else:
             raise forms.ValidationError("رمز عبور های وارد شده یکسان نیستند")
+
+
+class SignUpForm(forms.Form):
+    email = forms.EmailField(
+        label='ایمیل',
+        widget=forms.EmailInput(),
+        error_messages={
+            'required':'ایمیل خود را وارد کنید'
+        }
+    )
+    password = forms.CharField(
+        label='پسورد',
+        widget=forms.TextInput(),
+        error_messages={
+            'required':'پسورد خود را وارد کنید'
+        }
+    )
