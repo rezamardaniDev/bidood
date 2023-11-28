@@ -24,3 +24,5 @@ class Bike(models.Model):
 
     def __str__(self):
         return f"{self.id} - {'اجاره داده شده' if self.status else 'اجاره داده نشده'}"
+
+
