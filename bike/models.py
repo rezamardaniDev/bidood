@@ -5,6 +5,13 @@ class Type(models.Model):
     type_name = models.CharField(max_length=250)
     type_slug = models.CharField(max_length=20)
 
+    class Meta:
+        verbose_name = 'نوع'
+        verbose_name_plural = 'دسته بندی'
+
+    def __str__(self):
+        return self.type_name
+
 class Bike(models.Model):
     price = models.IntegerField(verbose_name='نرخ اجاره ساعتی')
     add_date = models.DateField(auto_now_add=True, verbose_name='تاریخ اضافه شدن')
@@ -16,4 +23,4 @@ class Bike(models.Model):
         verbose_name_plural = "دورچرخه ها"
 
     def __str__(self):
-        return f"{self.id} - {self.status}"
+        return f"{self.id} - {'اجاره داده شده' if self.status else 'اجاره داده نشده'}"
