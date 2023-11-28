@@ -1,7 +1,7 @@
 from django import forms
 
 
-class LoginForm(forms.Form):
+class SignUpForm(forms.Form):
     first_name = forms.CharField(
         label='نام',
         widget=forms.TextInput()
@@ -33,7 +33,7 @@ class LoginForm(forms.Form):
             raise forms.ValidationError("رمز عبور های وارد شده یکسان نیستند")
 
 
-class SignUpForm(forms.Form):
+class LoginForm(forms.Form):
     email = forms.EmailField(
         label='ایمیل',
         widget=forms.EmailInput(),
