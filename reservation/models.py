@@ -1,3 +1,18 @@
 from django.db import models
+from account.models import *
+from bike.models import *
+
 
 # Create your models here.
+class BikeToUser(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='کاربر')
+    bike = models.ForeignKey(Bike, on_delete=models.CASCADE, verbose_name='دوچرخه')
+    status = models.BooleanField(default=False, verbose_name="پس داده شده/نشده")
+    date = models.DateTimeField(auto_now_add=True, verbose_name="تاریخ رزرو")
+
+    class Meta:
+        verbose_name = 'رزرو'
+        verbose_name_plural = 'رزروها'
+
+    def __str__(self):
+        return f"{self.user.id} - {self.bike.id}"

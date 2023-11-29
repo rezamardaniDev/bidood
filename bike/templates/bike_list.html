@@ -1,0 +1,15 @@
+{% block content %}
+
+    {% for item in bike %}
+        <p>شناسه:{{ item.id }}</p>
+        <p>هزینه اجاره: {{ item.price }}</p>
+        <p>وضعیت: {% if item.status == True %}اجاره داده شده{% else %}اجاره داده نشده{% endif %}</p>
+        <p>نوع: {{ item.type }}</p>
+        {% if item.status == False %}
+            <a href="{% url 'reservation:get-bike' item.id %}">اجاره کردن</a>
+        {% else %}
+            <a href="{% url 'reservation:revert-bike' item.id %}">برگرداندن</a>
+        {% endif %}
+    {% endfor %}
+
+{% endblock %}
