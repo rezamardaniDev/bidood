@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .models import *
 from reservation.models import *
 from django.views.generic import ListView, DetailView
+
+
 # Create your views here.
 
 class ListBikeView(ListView):
