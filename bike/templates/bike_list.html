@@ -6,10 +6,11 @@
         <p>وضعیت: {% if item.status == True %}اجاره داده شده{% else %}اجاره داده نشده{% endif %}</p>
         <p>نوع: {{ item.type }}</p>
         {% if item.status == False %}
-            <a href="{% url 'reservation:get-bike' item.id %}">اجاره کردن</a>
-        {% else %}
-            <a href="{% url 'reservation:revert-bike' item.id %}">برگرداندن</a>
+            <a href="{% url 'reservation:get-bike' item.id %}"
+               style="background-color: green; padding: 0.5rem; display: block; width: fit-content; color: white">اجاره
+                کردن</a>
         {% endif %}
+        <hr/>
     {% endfor %}
 
 {% endblock %}

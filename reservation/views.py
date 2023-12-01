@@ -26,4 +26,4 @@ def revert_bike(request, id):
     obj.status = False
     obj.save()
 
-    return redirect('bike:bike-list')
+    return redirect('bike:my-bike')
