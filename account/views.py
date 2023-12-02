@@ -23,6 +23,7 @@ class SignUpView(View):
                 new_user.first_name = form.cleaned_data.get('first_name')
                 new_user.last_name = form.cleaned_data.get('last_name')
                 new_user.email = form.cleaned_data.get('email')
+                new_user.phone = form.cleaned_data.get('phone')
                 new_user.set_password(form.cleaned_data.get('password'))
                 new_user.is_staff = False
                 new_user.is_superuser = False
