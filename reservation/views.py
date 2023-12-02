@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .models import *
 from bike.models import Bike
@@ -6,6 +7,7 @@ from django.contrib import messages
 
 
 # Create your views here.
+@login_required(login_url="/account/login")
 def get_bike(request, id):
     conter = BikeToUser.objects.filter(user=request.user, status=True).count()
     if conter < 3:
@@ -24,6 +26,7 @@ def get_bike(request, id):
         return redirect("bike:my-bike")
 
 
+@login_required(login_url="/account/login")
 def revert_bike(request, id):
     bike = Bike.objects.filter(id=id).first()
     bike.status = False

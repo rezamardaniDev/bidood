@@ -1,6 +1,8 @@
 from django.contrib.auth import login, logout
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.views.generic import View
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .forms import *
 from .models import *
@@ -33,9 +35,7 @@ class SignUpView(View):
         else:
             form.add_error('confirm_password', 'خطایی در ثبت نام پیش آمده است')
 
-        return render(request, 'signup.html', context={
-            'from': form
-        })
+        return render(request, 'signup.html', context={'from': form})
 
 
 class LoginView(View):
@@ -64,11 +64,11 @@ class LoginView(View):
         return render(request, 'login.html', context={'form': form})
 
 
-class LogOutView(View):
-    def get(self, request):
-        logout(request)
-        return redirect("bike:bike-list")
+@login_required(login_url="/account/login")
+def logout_user(request):
+    logout(request)
+    return redirect("bike:bike-list")
 
-
+@login_required(login_url="/account/login")
 def profile(request):
     return render(request, 'profile.html', context={})

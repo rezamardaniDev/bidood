@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import *
 from reservation.models import *
 from django.views.generic import ListView, DetailView
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
@@ -11,8 +11,9 @@ class ListBikeView(ListView):
     context_object_name = 'bike'
     queryset = Bike.objects.all()
 
-
-class MyBikesView(ListView):
+login_url = "/login/"
+class MyBikesView(LoginRequiredMixin ,ListView):
+    login_url = "/account/login"
     template_name = 'my_bike.html'
     queryset = BikeToUser.objects.all()
 
