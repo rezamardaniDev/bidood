@@ -47,6 +47,7 @@ class LoginView(View):
 
     def post(self, request):
         form = LoginForm(request.POST)
+        print(request.POST)
         if form.is_valid():
             user: User & bool = User.objects.filter(email__iexact=form.cleaned_data.get('email')).first()
             if user:
