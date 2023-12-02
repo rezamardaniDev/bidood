@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+{% block content %}
+    <div class="mx-auto flex justify-center text-center my-6 gap-x-6">
+        <a href="{% url 'account:profile' %}" class="bg-green-500 text-white p-2 rounded-md azar flex items-center gap-x-2">
+            <i class="fas fa-user"></i>
+            <span>پروفایل</span>
+        </a>
+        <a href="{% url 'bike:my-bike' %}" class="bg-cyan-500 text-white p-2 rounded-md azar flex items-center gap-x-2">
+             <i class="fas fa-list"></i>
+            <span>سفارشات من</span>
+        </a>
+         <a href="{% url 'bike:bike-list' %}" class="bg-orange-500 text-white p-2 rounded-md azar flex items-center gap-x-2">
+             <i class="fas fa-bicycle"></i>
+            <span>ایستگاه دوچرخه</span>
+        </a>
+    </div>
+{% endblock %}

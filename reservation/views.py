@@ -20,7 +20,7 @@ def get_bike(request, id):
         obj.save()
         return redirect('bike:bike-list')
     else:
-        messages.error(request, 'اول باید یک دوچرخه را بازگردانید')
+        messages.error(request, 'شما به حد مجاز اجاره رسیده اید! ابتدا یک دوچرخه را بازگردانید')
         return redirect("bike:my-bike")
 
 

@@ -2,27 +2,21 @@
 {% block title %}{% endblock %}
 
 {% block content %}
-    <div class="mx-auto flex justify-center text-center my-6 gap-x-6">
-        <a href="{% url 'account:profile' %}" class="bg-green-500 text-white p-2 rounded-md azar flex items-center gap-x-2">
-            <i class="fas fa-user"></i>
-            <span>پروفایل</span>
-        </a>
-        <a href="my-bike.html" class="bg-cyan-500 text-white p-2 rounded-md azar flex items-center gap-x-2">
-             <i class="fas fa-list"></i>
-            <span>سفارشات من</span>
-        </a>
-         <a href="destination.html" class="bg-orange-500 text-white p-2 rounded-md azar flex items-center gap-x-2">
-             <i class="fas fa-bicycle"></i>
-            <span>ایستگاه دوچرخه</span>
-        </a>
-    </div>
+    <h1 class="text-[2rem] azar font-bold text-orange-500 text-center mt-4 mb-8">حساب کاربری</h1>
+    {% include 'menu.html' %}
     <section class="bg-white w-[25rem] pb-8 mx-auto rounded-md my-2">
         <h1 class="text-center azar py-4 text-[1.2rem]">اطلاعات کاربری</h1>
         <div class="flex flex-col gap-y-2">
-            <p class="azar mx-6">نام: {% if request.user.first_name %}{{ request.user.first_name }}{% else %}ناشناس{% endif %}</p>
-            <p class="azar mx-6">نام خانوادگی: {% if request.user.last_name %}{{ request.user.last_name }}{% else %}ناشناس{% endif %}</p>
+            <p class="azar mx-6">نام:
+                {% if request.user.first_name %}{{ request.user.first_name }}{% else %}ناشناس{% endif %}</p>
+            <p class="azar mx-6">نام خانوادگی:
+                {% if request.user.last_name %}{{ request.user.last_name }}{% else %}ناشناس{% endif %}</p>
             <p class="azar mx-6">ایمیل: {{ request.user.email }}</p>
             <p class="azar mx-6">شماره تماس: {{ request.user.phone }}</p>
         </div>
+        <a href="{% url 'account:logout' %}"
+           class="bg-red-400 block text-center mt-2 mx-6 text-white w-fit p-2 rounded-md azar flex items-center gap-x-2">
+            خروج از حساب
+        </a>
     </section>
 {% endblock %}

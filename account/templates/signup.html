@@ -11,26 +11,26 @@
                     <div class="mt-2 ">
                     <label for="" class="block py-1 text-gray-600 mx-1 mb-2">نام</label>
                     <input type="text" name="first_name" class="border border-orange-500 rounded-md p-2">
-                    <p class="text-[0.9rem] text-red-600 text-center mx-auto mt-1">ایمیل وارد شده صحیح نمیباشد</p>
+                    <p class="text-[0.9rem] text-red-600 text-center mx-auto mt-1">{{ form.first_name.errors }}</p>
                 </div>
 
                 <div class="mt-2">
                     <label for="" class="block py-1 text-gray-600 mx-1 mb-2">نام خانوادگی</label>
                     <input type="text" name="last_name" class="border border-orange-500 rounded-md p-2">
-                    <p class="text-[0.9rem] text-red-600 text-center mx-auto mt-1">ایمیل وارد شده صحیح نمیباشد</p>
+                    <p class="text-[0.9rem] text-red-600 text-center mx-auto mt-1">{{ form.last_name.errors }}</p>
                 </div>
                 </div>
         <div class="flex items-center gap-x-6">
                  <div class="my-2">
                     <label for="" class="block py-1 text-gray-600 mx-1 mb-2">شماره تماس</label>
                     <input type="text" name="phone" class="border border-orange-500 rounded-md p-2">
-                    <p class="text-[0.9rem] text-red-600 text-center mx-auto mt-1">ایمیل وارد شده صحیح نمیباشد</p>
+                    <p class="text-[0.9rem] text-red-600 text-center mx-auto mt-1">{{ form.phone.errors}}</p>
                 </div>
 
                 <div class="my-2">
                     <label for="" class="block py-1 text-gray-600 mx-1 mb-2">ایمیل</label>
                     <input type="email" name="email" class="border border-orange-500 rounded-md p-2">
-                    <p class="text-[0.9rem] text-red-600 text-center mx-auto mt-1">ایمیل وارد شده صحیح نمیباشد</p>
+                   <p class="text-[0.9rem] text-red-600 text-center mx-auto mt-1">{{ form.email.errors }}</p>
                 </div>
                 </div>
 
@@ -38,13 +38,13 @@
                 <div class="my-2">
                     <label for="" class="block py-1 text-gray-600 mx-1 mb-2">رمزعبور</label>
                     <input type="password" name="password" class="border border-orange-500 rounded-md p-2">
-                    <p class="text-[0.9rem] text-red-600 text-center mx-auto mt-1">ایمیل وارد شده صحیح نمیباشد</p>
+                    <p class="text-[0.9rem] text-red-600 text-center mx-auto mt-1">{{ form.password.errors }}</p>
                 </div>
 
                 <div class="my-2">
                     <label for="" class="block py-1 text-gray-600 mx-1 mb-2">تکرار رمزعبور</label>
                     <input type="password" name="confirm_password" class="border border-orange-500 rounded-md p-2">
-                    <p class="text-[0.9rem] text-red-600 text-center mx-auto mt-1">ایمیل وارد شده صحیح نمیباشد</p>
+                    <p class="text-[0.9rem] text-red-600 text-center mx-auto mt-1">{{ form.confirm_password.errors }}</p>
                 </div>
                 </div>
 

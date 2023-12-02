@@ -1,4 +1,4 @@
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.shortcuts import render, redirect
 from django.views.generic import View
 
@@ -10,7 +10,7 @@ from .models import *
 class SignUpView(View):
     def get(self, request):
         form = SignUpForm()
-        return render(request, 'signup.html', context={'form': form, })
+        return render(request, 'signup.html', context={'form': form})
 
     def post(self, request):
         form = SignUpForm(request.POST)
@@ -33,7 +33,9 @@ class SignUpView(View):
         else:
             form.add_error('confirm_password', 'خطایی در ثبت نام پیش آمده است')
 
-        return render(request, 'profile.html', context={'from': form})
+        return render(request, 'signup.html', context={
+            'from': form
+        })
 
 
 class LoginView(View):
@@ -62,8 +64,10 @@ class LoginView(View):
         return render(request, 'login.html', context={'form': form})
 
 
-def seccess_signup(request):
-    return render(request, 'seccess_signup.html', context={})
+class LogOutView(View):
+    def get(self, request):
+        logout(request)
+        return redirect("bike:bike-list")
 
 
 def profile(request):
