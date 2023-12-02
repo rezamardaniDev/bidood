@@ -14,9 +14,9 @@ class SignUpForm(forms.Form):
         label='ایمیل',
         widget=forms.EmailInput()
     )
-    phone = forms.EmailField(
+    phone = forms.CharField(
         label='شماره تماس',
-        widget=forms.CharField()
+        widget=forms.TextInput()
     )
     password = forms.CharField(
         label="پسورد",

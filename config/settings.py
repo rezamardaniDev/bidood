@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'account.apps.AccountConfig',
     'bike.apps.BikeConfig',
-    'manager.apps.ManagerConfig',
-    'reservation.apps.ReservationConfig'
+    'reservation.apps.ReservationConfig',
+    'home.apps.HomeConfig'
 ]
 
 MIDDLEWARE = [

@@ -10,9 +10,7 @@ from .models import *
 class SignUpView(View):
     def get(self, request):
         form = SignUpForm()
-        return render(request, 'signup.html', context={
-            'form': form,
-        })
+        return render(request, 'signup.html', context={'form': form, })
 
     def post(self, request):
         form = SignUpForm(request.POST)
@@ -25,26 +23,23 @@ class SignUpView(View):
                 new_user.email = form.cleaned_data.get('email')
                 new_user.phone = form.cleaned_data.get('phone')
                 new_user.set_password(form.cleaned_data.get('password'))
+                new_user.username = form.cleaned_data.get('email')[0:5]
                 new_user.is_staff = False
                 new_user.is_superuser = False
                 new_user.save()
-                return redirect('account:seccess')
+                return redirect('account:login')
             else:
                 form.add_error('email', 'این ایمیل از قبل ثبت نام شده است')
         else:
             form.add_error('confirm_password', 'خطایی در ثبت نام پیش آمده است')
 
-        return render(request, 'seccess_signup.html', context={
-            'from': form
-        })
+        return render(request, 'profile.html', context={'from': form})
 
 
 class LoginView(View):
     def get(self, request):
         form = LoginForm()
-        return render(request, 'login.html', context={
-            'form': form,
-        })
+        return render(request, 'login.html', context={'form': form, })
 
     def post(self, request):
         form = LoginForm(request.POST)
@@ -64,9 +59,7 @@ class LoginView(View):
         else:
             form.add_error('password', 'مشکلی در ثبت نام پیش آمده است')
 
-        return render(request, 'login.html', context={
-            'form': form
-        })
+        return render(request, 'login.html', context={'form': form})
 
 
 def seccess_signup(request):

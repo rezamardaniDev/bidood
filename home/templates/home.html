@@ -1,0 +1,13 @@
+{% extends 'main.html' %}
+{% block title %}{% endblock %}
+
+{% block content %}
+     <div class="mx-auto text-center">
+        <img src="./../static/images/bidood.webp" class="block mx-auto my-10 rounded-lg">
+        <p class="azar font-bold text-[1.3rem]">دوچرخه سواری هوشمند</p>
+        <div class="flex gap-3 justify-center my-8 items-center">
+            <a href="{% url 'account:login' %}" class="block border hover:bg-orange-500 hover:text-white duration-300 border-orange-500 text-orange-500 p-2 w-fit rounded-md azar">ورود به حساب</a>
+            <a href="{% url 'account:signup' %}" class="block bg-orange-500 hover:bg-transparent hover:border hover:border-orange-500 hover:text-orange-500 duration-300 text-white p-2 w-fit rounded-md azar ">ثبت نام</a>
+        </div>
+    </div>
+{% endblock %}
