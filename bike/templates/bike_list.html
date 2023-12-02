@@ -6,16 +6,27 @@
     {% include 'menu.html' %}
     <section class="flex justify-center flex-wrap gap-2">
     {% for item in bike %}
-        <div class="flex bg-white rounded-md p-6 w-fit items-center azar shadow-md gap-x-8 mx-8">
+        <div class="flex bg-white rounded-md p-6 items-center azar shadow-md gap-x-8 mx-8">
             <div>
-                <img src="./../static/images/get-bike.png" alt="" class="block w-[7rem] border border-gray-100 rounded-md">
+                <img src="./../static/images/get-bike.png" alt="" class="block w-[8rem] mb-8 border border-gray-100 rounded-md">
             </div>
             <div class="flex flex-col">
-                <span class="my-1">شناسه: {{ item.id }}</span>
-                <span class="mt-2">هزینه اجاره: {{ item.price }} تومان</span>
-            <span class="mt-2">نوع: {{ item.type }}</span>
+                <span class="my-1 flex items-center gap-x-2">
+                    <i class="fas fa-tag text-gray-600"></i>
+                     شناسه:  {{ item.id }}
+                </span>
+                <span class="mt-2 flex items-center gap-x-2">
+                     <i class="fas fa-money-bill-alt text-gray-600"></i>
+                     هزینه(ساعتی):  {{ item.price }} تومان
+                </span>
+            <span class="mt-2 flex items-center gap-x-2">
+                 <i class="fas fa-plug text-gray-600"></i>
+                    نوع: {{ item.type }}
+            </span>
 
-                <span class="mt-2">وضعیت: {% if item.status == True %}اجاره داده شده{% else %}اجاره داده نشده{% endif %}</span>
+                <span class="mt-2 flex items-center gap-x-2">
+                <i class="fas fa-flag text-gray-600"></i>
+                    وضعیت: {% if item.status == True %}اجاره داده شده{% else %}اجاره داده نشده{% endif %}</span>
                 {% if item.status == False %}
                     <a href="{% url 'reservation:get-bike' item.id %}" class="mt-4 text-green-500 text-center rounded-md w-fit p-1 hover:text-white hover:bg-green-500 duration-300">اجاره کردن</a>
                 {% endif %}

@@ -10,10 +10,11 @@
         {% endfor %}
     {% endif %}
     <section class="flex justify-center flex-wrap gap-2">
+    {% if bike %}
     {% for item in bike %}
         <div class="flex bg-white rounded-md p-6 w-fit items-center azar shadow-md gap-x-8 mx-8">
             <div>
-                <img src="./../static/images/get-bike.png" alt="" class="block w-[7rem] border border-gray-100 rounded-md">
+                <img src="./../static/images/get-bike.png" alt="" class="block w-[7rem] mb-2 border border-gray-100 rounded-md">
             </div>
             <div class="flex flex-col">
                 <span class="my-1">شناسه: {{ item.bike.id }}</span>
@@ -23,32 +24,8 @@
             </div>
         </div>
         {% endfor %}
+        {% else %}
+        <p class="azar text-[1.3rem] mt-12">شما هنوز هیچ دوچرخه ای اجاره نکرده اید!</p>
+    {% endif %}
     </section>
 {% endblock %}
-
-
-
-
-
-
-
-
-{#{% block content %}#}
-{#{% if messages  %}#}
-{#<div class="messages">#}
-{#		{% for message in messages %}#}
-{#			<div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>#}
-{#				{{ message }}#}
-{#			</div>#}
-{#		{% endfor %}#}
-{#		</div>#}
-{#    {% endif %}#}
-{#    {% for item in bike %}#}
-{#        <p>شناسه:{{ item.bike.id }}</p>#}
-{#        <p>هزینه اجاره: {{ item.bike.price }}</p>#}
-{#        <p>وضعیت: {% if item.status == True %}اجاره داده شده{% else %}اجاره داده نشده{% endif %}</p>#}
-{#        <p>نوع: {{ item.bike.type }}</p>#}
-{#             <a href="{% url 'reservation:revert-bike' item.bike.id %}" style="background-color: red; padding: 0.5rem; display: block; width: fit-content; color: white">برگرداندن</a>#}
-{#        <hr/>#}
-{#    {% endfor %}#}
-{#{% endblock %}#}
