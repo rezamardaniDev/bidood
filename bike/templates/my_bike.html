@@ -2,30 +2,32 @@
 {% block title %}{% endblock %}
 
 {% block content %}
-     <h1 class="text-[2rem] azar font-bold text-orange-500 text-center mt-4 mb-8">سفارشات من</h1>
+    <h1 class="text-[2rem] azar font-bold text-orange-500 text-center mt-4 mb-8">سفارشات من</h1>
     {% include 'menu.html' %}
     {% if messages %}
         {% for message in messages %}
-             <p class="bg-red-400 text-white text-center mx-auto w-fit p-2 azar my-4 rounded-md">{{ message }}</p>
+            <p class="bg-red-400 text-white text-center mx-auto w-fit p-2 azar my-4 rounded-md">{{ message }}</p>
         {% endfor %}
     {% endif %}
     <section class="flex justify-center flex-wrap gap-2">
-    {% if bike %}
-    {% for item in bike %}
-        <div class="flex bg-white rounded-md p-6 w-fit items-center azar shadow-md gap-x-8 mx-8">
-            <div>
-                <img src="./../static/images/get-bike.png" alt="" class="block w-[7rem] mb-2 border border-gray-100 rounded-md">
-            </div>
-            <div class="flex flex-col">
-                <span class="my-1">شناسه: {{ item.bike.id }}</span>
-                <span class="mt-2">هزینه اجاره: {{ item.bike.price }} تومان</span>
-                <span class="mt-2">تاریخ اجاره: {{ item.date.date }} </span>
-                <a href="{% url 'reservation:revert-bike' item.bike.id %}" class="mt-4 text-red-500 text-center rounded-md w-fit p-1 hover:text-white hover:bg-red-500 duration-300">برگرداندن</a>
-            </div>
-        </div>
-        {% endfor %}
+        {% if bike %}
+            {% for item in bike %}
+                <div class="flex bg-white rounded-md p-6 w-fit items-center azar shadow-md gap-x-8 mx-8">
+                    <div>
+                        <img src="./../static/images/get-bike.png" alt=""
+                             class="block w-[7rem] mb-2 border border-gray-100 rounded-md">
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="my-1">شناسه: {{ item.bike.id }}</span>
+                        <span class="mt-2">هزینه اجاره: {{ item.bike.price }} تومان</span>
+                        <span class="mt-2">تاریخ اجاره: {{ item.date.date }} </span>
+                        <a href="{% url 'reservation:revert-bike' item.bike.id %}"
+                           class="mt-4 text-red-500 text-center rounded-md w-fit p-1 hover:text-white hover:bg-red-500 duration-300">برگرداندن</a>
+                    </div>
+                </div>
+            {% endfor %}
         {% else %}
-        <p class="azar text-[1.3rem] mt-12">شما هنوز هیچ دوچرخه ای اجاره نکرده اید!</p>
-    {% endif %}
+            <p class="azar text-[1.3rem] mt-12">شما هنوز هیچ دوچرخه ای اجاره نکرده اید!</p>
+        {% endif %}
     </section>
 {% endblock %}

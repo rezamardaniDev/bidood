@@ -35,7 +35,9 @@ class SignUpView(View):
         else:
             form.add_error('confirm_password', 'خطایی در ثبت نام پیش آمده است')
 
-        return render(request, 'signup.html', context={'from': form})
+        return render(request, 'signup.html', context={
+            'form': form
+        })
 
 
 class LoginView(View):

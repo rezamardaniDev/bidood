@@ -36,19 +36,27 @@ class SignUpForm(forms.Form):
         else:
             raise forms.ValidationError("رمز عبور های وارد شده یکسان نیستند")
 
+    def clean_phone(self):
+        phone = self.cleaned_data.get('phone')
+
+        if len(phone) > 11:
+            raise forms.ValidationError("شماره تلفن معتبر نمیباشد")
+        else:
+            return phone
+
 
 class LoginForm(forms.Form):
     email = forms.EmailField(
         label='ایمیل',
         widget=forms.EmailInput(),
         error_messages={
-            'required':'ایمیل خود را وارد کنید'
+            'required': 'ایمیل خود را وارد کنید'
         }
     )
     password = forms.CharField(
         label='پسورد',
         widget=forms.TextInput(),
         error_messages={
-            'required':'پسورد خود را وارد کنید'
+            'required': 'پسورد خود را وارد کنید'
         }
     )
