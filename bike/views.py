@@ -10,6 +10,7 @@ class ListBikeView(ListView):
     template_name = 'bike_list.html'
     context_object_name = 'bike'
     queryset = Bike.objects.all()
+    ordering = ['status']
 
 login_url = "/login/"
 class MyBikesView(LoginRequiredMixin ,ListView):

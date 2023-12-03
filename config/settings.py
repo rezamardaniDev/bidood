@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'bike.apps.BikeConfig',
     'reservation.apps.ReservationConfig',
-    'home.apps.HomeConfig'
+    'home.apps.HomeConfig',
+    'django_jalali'
 ]
 
 MIDDLEWARE = [
